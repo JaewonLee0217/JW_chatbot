@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    {% block scripts %}
+        <script>
+        function chatTrain(){
+            alert('Training...');
+        }
+        </script>
+
+    {% endblock %}
+    {% block styles %}
+    <style>
+        .chatheader {
+            position: fixed;
+            left:0;
+            top:0;
+            width:100%;
+            padding:10px 0;
+            background-color:#DDD;
+            color:#000;
+            text-align:center;
+        }
+        .chatfooter {
+            position: fixed;
+            left:0;
+            bottom:0;
+            width:100%;
+            padding:10px 0;
+            background-color:#FFF;
+            text-align:center;
+        }
+
+    </style>
+    {% endblock %}
+</head>
+<body style="height:100%;background-color:#BBCCDD;">
+
+<div style="padding:0px;height:100%;background-color:#e8e8e8;">
+
+<div class="chatheader">
+    <table width="100%">
+        <tr>
+            <td width="50%" align="left">JW Chat</td>
+            <td width="50%" align="right">
+                <span onclick="chatTrain()" style="cursor: pointer">Train</span>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+<div style="height:450px;margin-top:50px;background-color: #BBCCDD">chat body</div>
+<div class="chatfooter">bottom</div>
+
+</div>
+</body>
+</html>
