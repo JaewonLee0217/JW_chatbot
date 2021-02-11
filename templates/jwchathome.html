@@ -5,8 +5,29 @@
     <title>Chatbot</title>
     {% block scripts %}
         <script>
+
         function chatTrain(){
             alert('Training...');
+        }
+
+        function sendAsk(){
+            ctext = document.getElementById("chattext").value;
+            {#공백인경우 포커스#}
+            if(ctext == ""){
+                document.getElementById("chattext").focus();
+                return false;
+
+            }
+            //alert(ctext);
+
+            addtext = "<div style='margin:15px 0; text-align:right;'><span style='padding:3px 10px;background-color:#3388cc;border-radius:3px;'>" + ctext + "</span></div>"
+            //div같은 거를 읽을 때 innerhtml
+            document.getElementById("chatbox").innerHTML += addtext;
+
+            btext = "나는 JW봇이라고 해"
+            bottext = "<div style='margin:15px 0;text-align:left;'><span style='padding:3px 10px;background-color:#DDD;border-radius:3px;'>" + btext + "</span></div>";
+            document.getElementById("chatbox").innerHTML += bottext;
+
         }
         </script>
 
@@ -52,8 +73,19 @@
 
 
 </div>
-<div style="height:450px;margin-top:50px;background-color: #BBCCDD">chat body</div>
-<div class="chatfooter">bottom</div>
+    <div id="chatbox" style=height:450px;margin-top:50px;padding:10px;background-color:#BBCCDD;overflow-y:scroll;overflow-x:hidden;max-height:100vh;"></div>
+<div class="chatfooter">
+    <table width="100%">
+        <tr>
+            <td width="90%">
+                <input type="text" id="chattext" style="padding:10px;width:100%;border:solid 0px #000;">
+            </td>
+            <td width="10%">
+                <button style="padding:10px;width:100%;" onclick="sendAsk()">SEND</button>
+            </td>
+        </tr>
+    </table>
+</div>
 
 </div>
 </body>
