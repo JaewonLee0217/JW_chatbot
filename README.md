@@ -28,6 +28,10 @@ Python, Django, tensorflow
      
 ### 개발 노트
 
+      *기본적인 JWchat방 구축 완료 -> 세부 javascript 작성중
+      ![초기화면](https://user-images.githubusercontent.com/55820321/107602078-d6719300-6c6b-11eb-8777-47bce768ef3e.JPG)
+
+
       * Django 환경 구축 -> Flask사용 배포 (진행중)
       
       * 모델 성능 개선 연구중 (진행중)
