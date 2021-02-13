@@ -1,5 +1,13 @@
 # JW_chatbot
 Python, Django, tensorflow
+### Version
+    * Python == 3.7
+    * Django == 3.1.1
+    * Tensorflow == 2.4.1
+    * scikit-learn == 0.24.1
+    * colorama == 0.4.4
+      
+
 
 
 ### Model
@@ -24,7 +32,7 @@ Python, Django, tensorflow
       
       
      * Epoch -> 490
-     * 최종 loss: 0.6715 - accuracy: 0.9388
+     * 최종 loss: 0.5963 - accuracy: 0.8775
      
 ### 개발 노트
 ![almost](https://user-images.githubusercontent.com/55820321/107842409-4ae03980-6e06-11eb-9fc7-bc583a1df934.JPG)
