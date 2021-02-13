@@ -1,6 +1,6 @@
 # JW_chatbot
 Python, Django, tensorflow
-### Version
+### Virtual Enviroment Settings
     * Python == 3.7
     * Django == 3.1.1
     * Tensorflow == 2.4.1
