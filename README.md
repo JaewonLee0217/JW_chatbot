@@ -27,11 +27,11 @@ Python, Django, tensorflow
      * 최종 loss: 0.6715 - accuracy: 0.9388
      
 ### 개발 노트
-![초기화면](https://user-images.githubusercontent.com/55820321/107602078-d6719300-6c6b-11eb-8777-47bce768ef3e.JPG)
+![almost](https://user-images.githubusercontent.com/55820321/107842409-4ae03980-6e06-11eb-9fc7-bc583a1df934.JPG)
 
-      *기본적인 JWchat방 구축 완료 -> 세부 javascript 작성중
+      * 채팅 환경 구축 완료 , 모델 로드 및 JWbot answering fuction 완료
 
       * Django 환경 구축 -> Flask사용 배포 (진행중)
       
-      * 모델 성능 개선 연구중 (진행중)
+      * 모델 성능 개선 연구중 (model on 21.02.13 = loss: 0.5963 - accuracy: 0.8775)
   
