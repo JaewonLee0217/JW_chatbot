@@ -5,29 +5,101 @@
     <title>Chatbot</title>
     {% block scripts %}
         <script>
-
-        function chatTrain(){
-            alert('Training...');
+        //csrf라는 토큰을 만들어서 AJAX호출
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
         }
 
+        var csrftoken = getCookie('csrftoken');
+
+        var xhr;
+
+
+        function chatTrain(){
+             var strurl = "chattrain";
+            //alert(strurl);
+            //return false;
+
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+                    //alert(obj.result);
+
+                    if(obj.flag == "0"){
+
+                        bottext = "<div style='margin:15px 0;text-align:left;'><span style='padding:3px 10px;background-color:#DDD;border-radius:3px;'>" + obj.anstext + "</span></div>";
+                        document.getElementById("chatbox").innerHTML += bottext;
+
+                        var objDiv = document.getElementById("chatbox");
+                        objDiv.scrollTop = objDiv.scrollHeight;
+
+                        document.getElementById("chattext").value = "";
+                        document.getElementById("chattext").focus();
+
+                    }
+                }
+            };
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
+        }
+
+
+
         function sendAsk(){
-            ctext = document.getElementById("chattext").value;
-            {#공백인경우 포커스#}
-            if(ctext == ""){
+            chattext = document.getElementById("chattext").value;
+            if(chattext == "") {
                 document.getElementById("chattext").focus();
                 return false;
-
             }
-            //alert(ctext);
 
-            addtext = "<div style='margin:15px 0; text-align:right;'><span style='padding:3px 10px;background-color:#3388cc;border-radius:3px;'>" + ctext + "</span></div>"
-            //div같은 거를 읽을 때 innerhtml
+            addtext = "<div style='margin:15px 0;text-align:right;'> <span style='padding:3px 10px;background-color:#3388cc;border-radius:3px;'>" + chattext + "</span></div>";
             document.getElementById("chatbox").innerHTML += addtext;
 
-            btext = "나는 JW봇이라고 해"
-            bottext = "<div style='margin:15px 0;text-align:left;'><span style='padding:3px 10px;background-color:#DDD;border-radius:3px;'>" + btext + "</span></div>";
-            document.getElementById("chatbox").innerHTML += bottext;
+            var strurl = "chatanswer?questext=" + chattext;
+            //alert(strurl);
+            //return false;
 
+            xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var data = xhr.responseText;
+
+                    var obj = JSON.parse(data);
+                    //alert(obj.anstext);
+
+                    if(obj.flag == "0"){
+
+                        bottext = "<div style='margin:15px 0;text-align:left;'><span style='padding:3px 10px;background-color:#DDD;border-radius:3px;'>" + obj.anstext + "</span></div>";
+                        document.getElementById("chatbox").innerHTML += bottext;
+
+                        var objDiv = document.getElementById("chatbox");
+                        objDiv.scrollTop = objDiv.scrollHeight;
+
+                        document.getElementById("chattext").value = "";
+                        document.getElementById("chattext").focus();
+
+                    }
+                }
+            };
+            xhr.open("GET", strurl);
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            xhr.send(null);
         }
         </script>
 
