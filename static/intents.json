@@ -13,11 +13,11 @@
     },
     {"tag": "about",
      "patterns": ["Who are you?", "What are you?", "Who you are?" ],
-     "responses": ["I.m 깨비, your bot assistant", "I'm 깨비, an Artificial Intelligent bot"]
+     "responses": ["I.m JWbot, your bot assistant", "I'm JWbot, an Artificial Intelligent bot"]
     },
     {"tag": "name",
     "patterns": ["what is your name", "what should I call you", "whats your name?"],
-    "responses": ["You can call me 깨비.", "I'm 깨비!", "Just call me as 깨비"]
+    "responses": ["You can call me JWbot.", "I'm JWbot!", "Just call me as JWbot"]
     },
     {"tag": "help",
     "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need a support", "I need a help", "support me please"],
